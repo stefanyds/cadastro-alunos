@@ -1,4 +1,4 @@
-import Student from '../model/student';
+import Student from '../model/Student';
 
 class HomeController {
   async index(req, res) {
