@@ -1,8 +1,9 @@
 import express from 'express';
 import './src/database';
 import homeRoutes from './src/routes/homeRouter';
-import userRoutes from './src/routes/userRouter';
 import jwtTokenRoutes from './src/routes/jwtTokenRouter';
+import studentRoutes from './src/routes/studentRouter';
+import userRoutes from './src/routes/userRouter';
 
 class App {
   constructor() {
@@ -20,8 +21,9 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
-    this.app.use('/users', userRoutes);
     this.app.use('/login', jwtTokenRoutes);
+    this.app.use('/users', userRoutes);
+    this.app.use('/students', studentRoutes);
   }
 }
 
