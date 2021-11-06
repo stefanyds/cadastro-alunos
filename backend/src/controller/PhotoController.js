@@ -1,6 +1,6 @@
 class PhotoController {
   async store(req, res) {
-    res.json('PhotoController ok ');
+    res.json(req.file);
   }
 }
 
