@@ -1,4 +1,5 @@
 import express from 'express';
+import { resolve } from 'path';
 import './src/database';
 import homeRoutes from './src/routes/homeRouter';
 import jwtTokenRoutes from './src/routes/jwtTokenRouter';
@@ -18,6 +19,7 @@ class App {
     // utilizado para manipular conteúdos em requisições POST
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {

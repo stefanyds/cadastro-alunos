@@ -1,5 +1,6 @@
 import multer from 'multer';
 import { extname, resolve } from 'path';
+import appConfig from './appConfig';
 
 export default {
   fileFilter: (req, file, callback) => {
@@ -11,7 +12,7 @@ export default {
   },
   storage: multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, resolve(__dirname, '..', '..', 'uploads'));
+      callback(null, resolve(__dirname, '..', '..', 'uploads', appConfig.imagesFolder));
     },
     filename: (req, file, callback) => {
       callback(null, `${file.fieldname}-${Date.now()}${extname(file.originalname)}`);
