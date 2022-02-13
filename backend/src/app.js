@@ -19,7 +19,7 @@ class App {
     // utilizado para manipular conteúdos em requisições POST
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, 'uploads')));
+    this.app.use(express.static(resolve(process.env.STATIC_DIR, 'uploads')));
   }
 
   routes() {
