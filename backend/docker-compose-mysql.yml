@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'MySql2021!'
+      MYSQL_DATABASE: 'escola'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.docker/volumes/mysql:/var/lib/mysql
+
+  mariadbsrv:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: 'MariaDb2021!'
+      MARIADB_DATABASE: 'students'
+    ports:
+      - 3406:3306
+    volumes:
+      - ./.docker/volumes/mariadb:/var/lib/mysql
