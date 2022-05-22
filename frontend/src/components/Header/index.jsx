@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import { Nav } from './styles';
 
 export default function Header() {
-  const usuarioLogado = useSelector((state) => state.usuarioLogado);
+  const usuarioLogado = useSelector(
+    (state) => state.loginReducer.usuarioLogado
+  );
 
   return (
     <Nav>
