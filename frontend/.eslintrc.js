@@ -24,5 +24,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error', // Verifica as regras dos Hooks
     'react-hooks/exhaustive-deps': 'warn', // Verifica as dependências de effects
+    'default-param-last': 0,
   },
 };
