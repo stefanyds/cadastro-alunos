@@ -34,7 +34,9 @@ export default function User() {
       const response = await axios.post('/users', { name, email, password }); // endereço do backend
       toast.info(`${response.data.name} foi cadastrado com sucesso`);
     } catch (error) {
-      const listError = get(error, 'response.data.errors', []);
+      const listError = get(error, 'response.data.errors', [
+        'Serviço indisponível, tente novamente mais tarde',
+      ]);
       listError.forEach((err) => {
         toast.error(err);
       });
