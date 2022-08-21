@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
+import * as actions from '../../store/modules/login/actions';
 
 export default function Login() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +25,8 @@ export default function Login() {
       toast.error('Senha deve conter de 6 a 12 caracteres');
     }
     if (formErrors) return;
-    toast.success('Validação do formulário de Login efetuada com sucesso!');
+
+    dispatch(actions.doLoginRequest({ email, password }));
   };
 
   return (
