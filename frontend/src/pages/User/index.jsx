@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { get } from 'lodash';
 import { isEmail } from 'validator';
+import { useNavigate } from 'react-router-dom';
 import axios from '../../services/axios';
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
@@ -10,6 +11,7 @@ export default function User() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ export default function User() {
     try {
       const response = await axios.post('/users', { name, email, password }); // endereço do backend
       toast.info(`${response.data.name} foi cadastrado com sucesso`);
+      navigate('/login');
     } catch (error) {
       const listError = get(error, 'response.data.errors', [
         'Serviço indisponível, tente novamente mais tarde',
