@@ -5,20 +5,25 @@ import { Link } from 'react-router-dom';
 import { Container } from '../../styles/GlobalStyles';
 import axios from '../../services/axios';
 import { StudentContainer, ProfilePicture } from './styled';
+import Loading from '../../components/Loading';
 
 export default function Students() {
   const [students, setStudents] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       const response = await axios.get('/students');
       setStudents(response.data);
+      setLoading(false);
     };
 
     getData();
   }, []);
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Listagem de Alunos</h1>
 
       <StudentContainer>
