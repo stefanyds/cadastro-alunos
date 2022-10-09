@@ -87,7 +87,9 @@ export default function User() {
             placeholder="Sua senha"
           />
         </label>
-        <button type="submit">Criar minha conta</button>
+        <button type="submit">
+          {authUser.id ? 'Salvar' : 'Crie sua conta'}
+        </button>
       </Form>
     </Container>
   );
