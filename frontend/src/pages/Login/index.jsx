@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { get } from 'lodash';
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
 import * as actions from '../../store/modules/login/actions';
+import Loading from '../../components/Loading';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function Login() {
   const location = useLocation();
   const prevPath = get(location, 'state.prevPath', '/');
   const navigate = useNavigate();
+  const isLoading = useSelector((state) => state.loginReducer.isLoading);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +38,7 @@ export default function Login() {
 
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <input
