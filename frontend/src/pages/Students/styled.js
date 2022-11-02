@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const StudentContainer = styled.div`
   margin-top: 1.25rem;
@@ -37,4 +38,9 @@ export const ProfilePicture = styled.div`
     height: 2.25rem;
     border-radius: 50%;
   }
+`;
+
+export const NewStudentLink = styled(Link)`
+  display: block;
+  padding: 20px 0 10px 0;
 `;
