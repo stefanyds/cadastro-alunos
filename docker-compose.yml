@@ -17,12 +17,12 @@ services:
     volumes: 
       - ./.docker/volumes/mysql:/var/lib/mysql
     
-  mariadbsrv:
-    image: mariadb:latest
-    environment: 
-      MARIADB_ROOT_PASSWORD: 'MariaDb2021!'
-      MARIADB_DATABASE: 'students'
-    ports: 
-      - 3406:3306
-    volumes:
-      - ./.docker/volumes/mariadb:/var/lib/mysql
+  # mariadbsrv:
+  #   image: mariadb:latest
+  #   environment: 
+  #     MARIADB_ROOT_PASSWORD: 'MariaDb2021!'
+  #     MARIADB_DATABASE: 'students'
+  #   ports: 
+  #     - 3406:3306
+  #   volumes:
+  #     - ./.docker/volumes/mariadb:/var/lib/mysql
