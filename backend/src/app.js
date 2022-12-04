@@ -2,7 +2,7 @@ import express from 'express';
 import { resolve } from 'path';
 import './database';
 import cors from 'cors';
-import delay from 'express-delay';
+// import delay from 'express-delay';
 import homeRoutes from './routes/homeRouter';
 import jwtTokenRoutes from './routes/jwtTokenRouter';
 import photoRoutes from './routes/photoRouter';
@@ -23,7 +23,7 @@ class App {
     this.app.use(express.json());
     this.app.use(express.static(resolve(process.env.STATIC_DIR, 'uploads')));
     this.app.use(cors());
-    this.app.use(delay(3000));
+    // this.app.use(delay(3000));
   }
 
   routes() {
